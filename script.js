@@ -13,8 +13,29 @@ if(c.email){document.getElementById('emailFooter').href='mailto:'+encodeURICompo
 if(c.bookingUrl&&/^https:\/\//.test(c.bookingUrl)){
   const box=document.getElementById('bookingBox');box.innerHTML='';
   const heading=document.createElement('h3');heading.textContent='Book with Kara ♡';box.appendChild(heading);
-  const p=document.createElement('p');p.textContent='Pick an available time on Kara’s Google Calendar booking page. Your appointment is confirmed only after completing the Google booking form.';box.appendChild(p);
-  const a=document.createElement('a');a.className='btn primary';a.href=c.bookingUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Choose an Appointment ↗';box.appendChild(a);
+  const intro=document.createElement('p');intro.textContent='Choose a nail service, then pick an available appointment on Kara’s Google Calendar.';box.appendChild(intro);
+  const label=document.createElement('label');label.className='booking-label';label.htmlFor='nailService';label.textContent='What service would you like?';box.appendChild(label);
+  const select=document.createElement('select');select.id='nailService';select.className='booking-select';select.required=true;
+  select.appendChild(new Option('Select a service…',''));
+  c.services.forEach((service,index)=>select.appendChild(new Option(service.name+' — '+service.price,String(index))));
+  box.appendChild(select);
+  const price=document.createElement('p');price.className='selected-service';price.setAttribute('aria-live','polite');price.textContent='Choose a service to see the price.';box.appendChild(price);
+  const button=document.createElement('a');button.className='btn primary booking-next';button.href=c.bookingUrl;button.target='_blank';button.rel='noopener noreferrer';button.textContent='Choose Appointment Time ↗';button.setAttribute('aria-disabled','true');button.tabIndex=-1;box.appendChild(button);
+  const note=document.createElement('p');note.className='booking-fine-print';note.textContent='After selecting a time, enter your chosen service in the Google booking form. Selecting it here does not automatically send it to Google Calendar. Gems are an add-on ($2 per hand). Your booking is confirmed only when you finish the Google form.';box.appendChild(note);
+  select.addEventListener('change',()=>{
+    const selected=c.services[Number(select.value)];
+    if(select.value!==''&&selected){
+      price.textContent='Selected: '+selected.name+' · '+selected.price;
+      button.setAttribute('aria-disabled','false');button.tabIndex=0;
+    }else{
+      price.textContent='Choose a service to see the price.';
+      button.setAttribute('aria-disabled','true');button.tabIndex=-1;
+    }
+  });
+  button.addEventListener('click',event=>{if(button.getAttribute('aria-disabled')==='true')event.preventDefault()});
+  document.querySelectorAll('.service-link').forEach((link,index)=>link.addEventListener('click',()=>{
+    select.value=String(index);select.dispatchEvent(new Event('change'));
+  }));
 }
 const b=document.getElementById('menuBtn'),n=document.getElementById('nav');b.addEventListener('click',()=>{let open=n.classList.toggle('open');b.setAttribute('aria-expanded',String(open))});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false')}));
 
