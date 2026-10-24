@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'none'; font-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests">
+<title>Nails by Kara | Revenue Dashboard</title>
+<style>
+:root{--rose:#ad667a;--pink:#ead0d5;--bg:#fbf7f3;--ink:#33272c;--muted:#786b70;--line:#e9dfe0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:#fffaf8;border-bottom:1px solid var(--line);padding:17px max(5%,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px}
+header strong{letter-spacing:.12em}a{color:var(--rose)}header a{text-decoration:none;font-weight:700}
+main{max-width:1100px;margin:auto;padding:35px 20px 70px}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(35px,6vw,54px);margin:8px 0}h2{font-size:23px;margin:0 0 12px}.eyebrow{color:var(--rose);font-weight:750;letter-spacing:.15em;font-size:12px}.sub{color:var(--muted);max-width:710px}
+.notice{margin:24px 0;padding:16px 18px;background:#fff;border:1px solid #e3becb;border-left:4px solid var(--rose);border-radius:12px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:23px}.stat .label{font-size:12px;color:var(--muted)}.stat strong{display:block;font-size:clamp(23px,3vw,34px);color:var(--rose);margin-top:5px;font-variant-numeric:tabular-nums}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.panel p{color:var(--muted);font-size:13px}
+.field{display:flex;flex-direction:column;gap:5px;margin:12px 0}.field label{font-size:13px;font-weight:700}
+input,select,button{font:inherit}input,select{width:100%;min-height:43px;padding:10px;border:1px solid #dec5cd;border-radius:8px;color:var(--ink);background:white}input:focus,select:focus,button:focus-visible{outline:3px solid #ecc4d1;outline-offset:2px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+button,.button{cursor:pointer;background:var(--rose);color:white;border:0;border-radius:8px;padding:11px 15px;font-weight:700;text-align:center;text-decoration:none}button.secondary,.button.secondary{color:var(--rose);background:#fff;border:1px solid var(--rose)}button:disabled{opacity:.45;cursor:not-allowed}
+.chartrow{display:grid;grid-template-columns:85px 1fr 90px;align-items:center;gap:12px;margin:14px 0;font-size:13px}.barbg{border-radius:99px;background:#f4e6eb;height:13px;overflow:hidden}.bar{height:100%;background:var(--rose);width:0;border-radius:99px}
+.chartname{overflow-wrap:anywhere}.chartvalue{text-align:right;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:10px 7px}th{color:var(--muted)}td:last-child,th:last-child{text-align:right}
+.tablewrap{overflow-x:auto}.muted{font-size:12px;color:var(--muted)}.feedback{font-size:13px;color:#865268;min-height:20px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.panels{grid-template-columns:1fr}}
+@media(max-width:520px){.formgrid{grid-template-columns:1fr}.stat,.panel{padding:16px}.chartrow{grid-template-columns:75px 1fr 75px;gap:7px;font-size:12px}header strong{font-size:12px}header a{font-size:12px}}
+</style>
+</head><body>
+<header><strong>NAILS BY KARA ♡</strong><a href="./owner.html">← Owner control center</a></header>
+<main>
+<span class="eyebrow">BUSINESS TOOLS / REVENUE</span><h1>Revenue dashboard <span aria-hidden="true">♡</span></h1>
+<p class="sub">Track completed nail appointments, compare services, and see monthly income totals. Record actual amounts received, not just starting prices.</p>
+<div class="notice"><strong>Privacy first:</strong> This webpage is public and does not have a secure owner login. Entries stay only in this open browser tab and are not saved or sent to GitHub or a server. Reloading clears them. Use an exported CSV saved somewhere private to keep your records. Never enter customer names, emails, or other personal information here.</div>
+<div class="grid" aria-label="Revenue overview">
+<div class="stat"><span class="label">All-time gross revenue</span><strong id="total">$0.00</strong></div>
+<div class="stat"><span class="label">Selected month</span><strong id="monthTotal">$0.00</strong></div>
+<div class="stat"><span class="label">Completed services</span><strong id="count">0</strong></div>
+<div class="stat"><span class="label">Average service amount</span><strong id="average">$0.00</strong></div>
+</div>
+<div class="panels">
+<section class="panel"><h2>Record a completed service</h2><p>Only enter completed services and actual amounts received. Do not enter upcoming bookings here.</p>
+<div class="formgrid">
+<div class="field"><label for="date">Date</label><input type="date" id="date" required></div>
+<div class="field"><label for="service">Service</label><select id="service"><option>Full Set</option><option>Refills</option><option>Manicure Without Color Polish</option><option>Manicure With Color Polish</option><option>Gems</option><option>Other</option></select></div>
+</div>
+<div class="field"><label for="amount">Actual amount received ($)</label><input id="amount" type="number" min="0" max="100000" step=".01" inputmode="decimal" placeholder="35.00"></div>
+<button type="button" id="add">Add completed service</button><p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+</section>
+<section class="panel"><h2>Service breakdown</h2><p>Totals for the selected month.</p><div id="serviceBreakdown" aria-live="polite"></div></section>
+<section class="panel"><h2>Monthly revenue</h2><p>Gross revenue recorded by month.</p><div id="monthlyChart" aria-live="polite"></div></section>
+<section class="panel"><h2>Backup & filters</h2><p>CSV files can be saved locally and reimported when you return.</p>
+<div class="field"><label for="month">Month to view</label><input type="month" id="month"></div>
+<div class="actions"><button type="button" id="export" class="secondary">Export CSV</button><button type="button" id="import" class="secondary">Import CSV</button><button type="button" id="clear" class="secondary">Clear this tab</button></div>
+<input type="file" id="csvfile" accept=".csv,text/csv" hidden>
+<p class="muted">CSV import expects date,service,amount. Imports replace the current unsaved entries after confirmation. No data is uploaded to a server.</p>
+</section>
+</div>
+<section class="panel" id="entriesPanel"><h2>Recorded services</h2><p id="tableInfo">No entries recorded in this tab.</p><div class="tablewrap"><table><thead><tr><th>Date</th><th>Service</th><th>Amount</th><th>Action</th></tr></thead><tbody id="entries"></tbody></table></div></section>
+</main><footer>Nails by Kara • Owner revenue calculator • No cloud storage or authentication</footer>
+<script src="revenue.js?v=1" defer></script></body></html>
