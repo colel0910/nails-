@@ -13,11 +13,11 @@ window.STUDIO = {
     {name:'Gems', description:'Add gems to your nail look. Charged per hand.', price:'$2 / hand', duration:'Add-on', icon:'✦'}
   ],
   gallery: [
-    {caption:'Black & pink ghost French tips',src:'black-pink-ghost-nails.webp'},
-    {caption:'Pink & white French tips with gold accents',src:'pink-white-french-tips.webp'},
-    {caption:'Turquoise button nail art',src:'turquoise-button-nails.webp'},
-    {caption:'Animal print & gold accents',src:'animal-print-gold-nails.webp'},
-    {caption:'Black spiderweb French tips',src:'spooky-spiderweb-nails.webp'},
-    {caption:'Blue 3D character nail art',src:'blue-character-nails.webp'}
+    {caption:'Black & pink ghost French tips',src:'https://raw.githubusercontent.com/colel0910/nails-/main/black-pink-ghost-nails.webp'},
+    {caption:'Pink & white French tips with gold accents',src:'https://raw.githubusercontent.com/colel0910/nails-/main/pink-white-french-tips.webp'},
+    {caption:'Turquoise button nail art',src:'https://raw.githubusercontent.com/colel0910/nails-/main/turquoise-button-nails.webp'},
+    {caption:'Animal print & gold accents',src:'https://raw.githubusercontent.com/colel0910/nails-/main/animal-print-gold-nails.webp'},
+    {caption:'Black spiderweb French tips',src:'https://raw.githubusercontent.com/colel0910/nails-/main/spooky-spiderweb-nails.webp'},
+    {caption:'Blue 3D character nail art',src:'https://raw.githubusercontent.com/colel0910/nails-/main/blue-character-nails.webp'}
   ]
 };
