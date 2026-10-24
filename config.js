@@ -4,7 +4,7 @@ window.STUDIO = {
   instagram: 'https://www.instagram.com/nail.sby.kara/',
   email: 'nailsbykara@gmail.com',
   about: 'Welcome to Nails by Kara! Explore my nail services, find inspiration in my latest sets, and book your next appointment. I can’t wait to create something pretty for you!',
-  bookingUrl: '', // Paste Kara's public Google Calendar Appointment Schedule BOOKING PAGE link here.
+  bookingUrl: 'https://calendar.app.google/TA3CMV8KhQ2ivyLa9', // Paste Kara's public Google Calendar Appointment Schedule BOOKING PAGE link here.
   services: [
     {name:'Full Set', description:'A fresh full set of nails. Final price varies by your chosen style.', price:'$35+', duration:'Price starts at $35', icon:'✧'},
     {name:'Refills', description:'Refresh your existing nail set.', price:'$30+', duration:'Price starts at $30', icon:'♡'},
