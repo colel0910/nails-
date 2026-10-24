@@ -2,7 +2,7 @@
 window.STUDIO = {
   name: 'Nails by Kara',
   instagram: 'https://www.instagram.com/nail.sby.kara/',
-  email: '',
+  email: 'nailsbykara@gmail.com',
   about: 'Welcome to Nails by Kara! Explore my nail services, find inspiration in my latest sets, and book your next appointment. I can’t wait to create something pretty for you!',
   bookingUrl: '', // Paste Kara's public Google Calendar Appointment Schedule BOOKING PAGE link here.
   services: [
