@@ -1,0 +1,1 @@
+Nails by Kara — real nail photos gallery. Upload ALL files and the photos folder to the ROOT of your GitHub repository colel0910/nails-. On GitHub open Add file > Upload files, drag the CONTENTS of this folder (not the folder itself), then Commit changes. Google Calendar booking still needs Kara’s public booking URL in config.js. This ZIP is not automatically published.
