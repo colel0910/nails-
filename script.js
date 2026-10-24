@@ -11,10 +11,10 @@ document.getElementById('galleryGrid').innerHTML=c.gallery.map((g,i)=>{const has
 if(c.instagram&&/^https:\/\//.test(c.instagram)){for(const id of ['instagramGallery','instagramFooter']){let a=document.getElementById(id);a.href=c.instagram;a.target='_blank';a.rel='noopener noreferrer'}}else{document.getElementById('instagramGallery').textContent='Add your Instagram in config.js ↗';document.getElementById('instagramFooter').textContent='Instagram coming soon'}
 if(c.email){document.getElementById('emailFooter').href='mailto:'+encodeURIComponent(c.email)}else document.getElementById('emailFooter').textContent='Email coming soon';
 if(c.bookingUrl&&/^https:\/\//.test(c.bookingUrl)){
-  const box=document.getElementById('bookingBox');box.innerHTML='';const heading=document.createElement('h3');heading.textContent='Choose your appointment ♡';box.appendChild(heading);
-  const frame=document.createElement('iframe');frame.src=c.bookingUrl;frame.title='Google Calendar appointment booking';frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';frame.className='calendar-frame';box.appendChild(frame);
-  const p=document.createElement('p');p.className='frame-help';p.textContent='If the calendar does not load inside this page, use the button below to book securely on Google Calendar.';box.appendChild(p);
-  const a=document.createElement('a');a.className='btn primary';a.href=c.bookingUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Open Booking Calendar ↗';box.appendChild(a);
+  const box=document.getElementById('bookingBox');box.innerHTML='';
+  const heading=document.createElement('h3');heading.textContent='Book with Kara ♡';box.appendChild(heading);
+  const p=document.createElement('p');p.textContent='Pick an available time on Kara’s Google Calendar booking page. Your appointment is confirmed only after completing the Google booking form.';box.appendChild(p);
+  const a=document.createElement('a');a.className='btn primary';a.href=c.bookingUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Choose an Appointment ↗';box.appendChild(a);
 }
 const b=document.getElementById('menuBtn'),n=document.getElementById('nav');b.addEventListener('click',()=>{let open=n.classList.toggle('open');b.setAttribute('aria-expanded',String(open))});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false')}));
 
